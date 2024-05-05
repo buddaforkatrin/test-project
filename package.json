@@ -1,0 +1,22 @@
+{
+  "name": "test-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/buddaforkatrin/test-project.git"
+  },
+  "author": "Ekaterina Vaniukhina",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/buddaforkatrin/test-project/issues"
+  },
+  "homepage": "https://github.com/buddaforkatrin/test-project#readme",
+  "dependencies": {
+    "jest": "^29.7.0"
+  }
+}
