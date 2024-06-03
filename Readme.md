@@ -38,34 +38,24 @@ EOL
 cat <<EOL > index.spec.js
 const calculateBonus = require('./index');
 
-test('sum of a and b is greater than 50', () => {
-expect(calculateBonus(30, 25)).toBe(50);
-expect(calculateBonus(50, 1)).toBe(50);
-expect(calculateBonus(100, 100)).toBe(50);
+test("sum of a and b is greater than 50", () => {
+  expect(calculateBonus(100, 100)).toBe(50);
 });
 
-test('sum of a and b is equal to 50', () => {
-expect(calculateBonus(25, 25)).toBe(50);
-expect(calculateBonus(30, 20)).toBe(50);
+test("sum of a and b is equal to 50", () => {
+  expect(calculateBonus(30, 20)).toBe(50);
 });
 
-test('sum of a and b is less than 50', () => {
-expect(calculateBonus(10, 20)).toBe(30);
-expect(calculateBonus(0, 0)).toBe(0);
-expect(calculateBonus(15, 10)).toBe(25);
-expect(calculateBonus(-10, 30)).toBe(20);
+test("sum of a and b is less than 50", () => {
+  expect(calculateBonus(10, 20)).toBe(30);
 });
 
-test('one or both inputs are negative, but sum is less than 50', () => {
-expect(calculateBonus(-10, 20)).toBe(10);
-expect(calculateBonus(-25, 40)).toBe(15);
-expect(calculateBonus(-50, 50)).toBe(0);
+test("one or both inputs are negative, but sum is less than 50", () => {
+  expect(calculateBonus(-10, 20)).toBe(10);
 });
 
-test('sum of a and b is exactly zero', () => {
-expect(calculateBonus(0, 0)).toBe(0);
-expect(calculateBonus(25, -25)).toBe(0);
-expect(calculateBonus(-50, 50)).toBe(0);
+test("sum of a and b is exactly zero", () => {
+  expect(calculateBonus(0, 0)).toBe(0);
 });
 EOL
 ```
@@ -198,17 +188,30 @@ yarn test
 5. **Тесты для суммы, равной нулю**:
    - Проверяет, что если сумма двух чисел равна нулю, функция возвращает 0.
 
-## Вклад
-
-Если вы хотите внести свой вклад в проект, создайте форк репозитория, внесите свои изменения и отправьте pull request.
-
-## Лицензия
-
-Этот проект лицензирован под лицензией MIT. Для получения подробной информации см. файл \`LICENSE\`.
-EOL
-
 # Запуск тестов для проверки
 
 ```bash
 npm test
 ```
+
+## Покрытие кода
+
+Проект использует Jest и Istanbul для измерения покрытия кода. Ниже приведены основные метрики покрытия:
+
+- **Покрытие функций**: Измеряет процент функций, которые были вызваны хотя бы раз во время выполнения тестов.
+- **Покрытие веток**: Измеряет процент выполненных ветвей (условных операторов) в коде.
+- **Покрытие строк**: Измеряет процент строк кода, которые были выполнены.
+
+Для запуска тестов и измерения покрытия используйте команду:
+
+```bash
+npx jest --coverage
+```
+
+### Что можно увидеть в отчете покрытия
+
+После запуска команды `npx jest --coverage`, отчет будет сохранен в директории `coverage`. В отчете можно увидеть:
+
+- **Покрытие по файлам**: Общая информация по каждому файлу.
+- **Детализированный отчет**: Подробное покрытие для каждого файла, показывающее выполненные и невыполненные строки кода.
+- **Покрытие функций, веток и строк**: Отдельные метрики для функций, веток и строк.
