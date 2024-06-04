@@ -1,78 +1,8 @@
-# Создание структуры проекта
-
-```bash
-mkdir calculate-bonus-project
-cd calculate-bonus-project
-```
-
 # Инициализация npm проекта
 
 ```bash
 npm init -y
 ```
-
-# Установка Jest для тестирования
-
-```bash
-npm install --save-dev jest
-```
-
-# Создание файла index.js с реализацией функции calculateBonus
-
-```bash
-cat <<EOL > index.js
-const calculateBonus = (a, b) => {
-let bonus;
-const sum = a + b;
-sum > 50 ? (bonus = 50) : (bonus = sum);
-return bonus;
-};
-
-module.exports = calculateBonus;
-EOL
-```
-
-# Создание файла index.spec.js с тестами для функции calculateBonus
-
-```bash
-cat <<EOL > index.spec.js
-const calculateBonus = require('./index');
-
-test("sum of a and b is greater than 50", () => {
-  expect(calculateBonus(100, 100)).toBe(50);
-});
-
-test("sum of a and b is equal to 50", () => {
-  expect(calculateBonus(30, 20)).toBe(50);
-});
-
-test("sum of a and b is less than 50", () => {
-  expect(calculateBonus(10, 20)).toBe(30);
-});
-
-test("one or both inputs are negative, but sum is less than 50", () => {
-  expect(calculateBonus(-10, 20)).toBe(10);
-});
-
-test("sum of a and b is exactly zero", () => {
-  expect(calculateBonus(0, 0)).toBe(0);
-});
-EOL
-```
-
-# Добавление скрипта для запуска тестов в package.json
-
-```bash
-npx json -I -f package.json -e 'this.scripts.test="jest"'
-```
-
-# Создание файла README.md с инструкциями
-
-```bash
-cat <<EOL > README.md
-```
-
-# Calculate Bonus Project
 
 ## Описание
 
@@ -93,76 +23,14 @@ cat <<EOL > README.md
 - `package.json`: Конфигурационный файл npm, содержащий зависимости и скрипты для проекта.
 - `README.md`: Текущее руководство.
 
-## Установка
-
-Для установки необходимых зависимостей вам понадобится Node.js и npm (или Yarn).
-
-1. Клонируйте репозиторий:
-
-```bash
-git clone <URL вашего репозитория>
-cd <название вашего репозитория>
-```
-
-2. Установите зависимости:
-
-С использованием npm:
-
-```bash
-npm install
-```
-
-Или с использованием Yarn:
-
-```bash
-yarn install
-```
-
-## Запуск проекта
-
-1. Убедитесь, что файл \`index.js\` содержит следующую функцию:
-
-```javascript
-const calculateBonus = (a, b) => {
-  let bonus;
-  const sum = a + b;
-  sum > 50 ? (bonus = 50) : (bonus = sum);
-  return bonus;
-};
-
-module.exports = calculateBonus;
-```
-
-2. Запуск основного кода (если это необходимо, например, для тестирования в консоли):
-
-```bash
-node index.js
-```
-
 ## Запуск тестов
 
 Тестирование выполняется с использованием Jest. В \`index.spec.js\` содержатся все необходимые тесты для функции \`calculateBonus\`.
-
-1. Добавьте скрипт для запуска тестов в ваш \`package.json\`:
-
-```json
-"scripts": {
-  "test": "jest"
-}
-```
-
-2. Запустите тесты:
 
 С использованием npm:
 
 ```bash
 npm test
-```
-
-Или с использованием Yarn:
-
-```bash
-yarn test
 ```
 
 ## Описание тестов
